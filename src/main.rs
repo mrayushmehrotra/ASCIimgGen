@@ -5,12 +5,10 @@ fn get_str_ascii(intent: u8) -> &'static str {
     let ascii = [" ",".",",","-","~","+","=","@"];
     return ascii[index as usize]
 }
-
-
 fn get_image(dir: &str, scale: u32){
     let img = image::open(dir).unwrap();
     println!("{:?}", img.dimensions());
-        let (width,height) = (640,480);
+        let (width,height) = img.dimensions(); 
         for y in 0..height {
             for x in 0..width{
                 if y % (scale * 2) == 0 && x % scale ==0{
@@ -30,6 +28,6 @@ fn get_image(dir: &str, scale: u32){
 }
 
 fn main(){
-    get_image("img.jpg", 4)
+    get_image("img.png", 4)
 
 }
